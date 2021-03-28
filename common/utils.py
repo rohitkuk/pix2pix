@@ -34,7 +34,7 @@ def remove_files(filepath, match = False, match_string = None):
 
 
 def AlreadyDownloaded(expectedFileName):
-    return os.path.isfile(expectedFileName)
+    return os.path.isfile(expectedFileName) and len(os.listdir("Dataset")) != 0
 
 
 

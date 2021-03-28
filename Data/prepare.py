@@ -9,15 +9,15 @@ def main(Data_Path, expectedFileName = False, unzip_path = "Dataset", keep_cache
         This functions download kaggle dataset,
         extract the files and remove if required
     """
-    
+    print('1')
     # IF EXPECTED FILE NAME NOT GIVEN TRY MAKING ONE WITH THE DATA PATH
     if not expectedFileName:
         expectedFileName = Data_Path.split('/')[-1] + '.zip'
-    
+    print('2')
     # CHECK IF ALREADY DOWNLOADED
     if AlreadyDownloaded(expectedFileName):
         return
-    
+    print("3")
     # DOWNLOAD KAGGLE DATASET WOULD NEED PATH TO KAGGLE JSON
     kaggleDownloadData(Data_Path)
     
