@@ -26,11 +26,12 @@ wandb.init(project="pix2pix", entity="rohitkuk")
     - Generator                 : Done
     - Disriminator              : Done
     - Training                  : Done
+    - Requirments.txt           : Done
     - TensorBoard Integration   : Done
     - WandB Integration         : Done
+    - ReadME.md                 : WIP
     - Logging                   : TBD (Try Implementing Rich Library)
     - Argument Parsing          : TBD
-    - Requirments.txt           : TBD
     - Packaging                 : TBD
     - Frontend or UI            : TBD
     - Optimization              : Continous
@@ -66,21 +67,12 @@ def main(dataset_name, Data_Path):
     wandb.watch(gen)
     wandb.watch(disc)
 
-
-    # Code for COLLAB TENSORBOARD VIEW
-    try:
-        from IPython import get_ipython
-        get_ipython().magic("%load_ext tensorboard")
-        get_ipython().magic("%tensorboard --logdir logs")
-    except:
-        pass
-
     # training
     disc.train()
     gen.train()
     step = 0
+
     print("Start Training")
-    
     for epoch in range(Config.EPOCHS):
         step = train(disc, gen, BCE, disc_optim, gen_optim, l1_loss,epoch,loader, Config , make_grid, wandb, writer_real, writer_fake, step)
 
