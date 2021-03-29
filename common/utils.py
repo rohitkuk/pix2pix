@@ -4,7 +4,11 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 import glob, os, multiprocessing
 from PIL import Image
 import albumentations as A
-from albumentations.pytorch import ToTensorV2
+try:
+    from albumentations.pytorch import ToTensorV2
+except ImportError:
+    from albumentations.pytorch import ToTensor as ToTensorV2
+
 
 
 def kaggleDownloadData(Data_Path):
