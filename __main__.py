@@ -1,11 +1,11 @@
 
-tree --dirsfirst --noreport -I 'Dataset*|wandb*|__pycache__|__init__.py|logs|SampleImages|List.md' > List.md 
+# tree --dirsfirst --noreport -I 'Dataset*|wandb*|__pycache__|__init__.py|logs|SampleImages|List.md' > List.md 
 
 from Data import explore, process, prepare
 from torch.utils.data import DataLoader
 from torchvision.utils import save_image, make_grid
 from torch.utils.tensorboard import SummaryWriter
-from common.utils import create_dir, check_dir_exists
+from common.utils import create_dir, check_dir_exists, initialize_weights
 import Config
 from Execute.train import train
 import torch.nn as nn 
@@ -59,6 +59,7 @@ def main(dataset_name, Data_Path):
     disc = Discriminator(Config.IMG_CHANNELS, Config.FEATURES).to(Config.DEVICE)
     gen  = Generator(Config.IMG_CHANNELS, Config.FEATURES).to(Config.DEVICE)
 
+    initialize_weights(disc), initialize_weights(gen)
     disc_optim = optim.Adam(disc.parameters(), lr = Config.LEARNING_RATE, betas=(0.5, 0.999))
     gen_optim = optim.Adam(gen.parameters(), lr = Config.LEARNING_RATE, betas=(0.5, 0.999))
 
@@ -83,6 +84,7 @@ def main(dataset_name, Data_Path):
 
 
 if __name__ == "__main__":
+    main(dataset_name = "facades", Data_Path="vikramtiwari/pix2pix-dataset")
     # explore.show_grid(GRIDSIZE=1, ROWS=1, COLS=1)
     # for x, y in loader:
         # create_dir("SampleImages") if not check_dir_exists('SampleImages') else None
@@ -92,4 +94,3 @@ if __name__ == "__main__":
         # save_image(y, "SampleImages/y.png")
         # import sys
         # sys.exit()
-    main(dataset_name = "facades", Data_Path="vikramtiwari/pix2pix-dataset")

@@ -40,3 +40,5 @@ class Pix2PixDatasets(Dataset):
         return input_image, target_image
 
 
+if __name__ == '__main__':
+    Pix2PixDatasets()

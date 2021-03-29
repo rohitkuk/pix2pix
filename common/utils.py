@@ -4,6 +4,7 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 import glob, os, multiprocessing
 from PIL import Image
 import albumentations as A
+import torch.nn as nn
 try:
     from albumentations.pytorch import ToTensorV2
 except ImportError:
@@ -82,6 +83,12 @@ def image_splitter(image, dataset_name, reverse = False):
         input_image, target_image = target_image, input_image
     return input_image, target_image
 
+
+def initialize_weights(model):
+    # Initializes weights according to the DCGAN paper
+    for m in model.modules():
+        if isinstance(m, (nn.Conv2d, nn.ConvTranspose2d, nn.BatchNorm2d)):
+            nn.init.normal_(m.weight.data, 0.0, 0.02)
 
 input_augmentation= A.Compose([
     A.Resize(256,256),
