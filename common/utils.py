@@ -9,6 +9,7 @@ try:
 except ImportError:
     from albumentations.pytorch import ToTensor as ToTensorV2
 
+from tqdm import tqdm
 
 
 def kaggleDownloadData(Data_Path):
@@ -20,7 +21,10 @@ def kaggleDownloadData(Data_Path):
 def extractData(filepath, unzip_path):
     print("Extracting...")
     with ZipFile(filepath, "r") as f:
-        f.extractall(unzip_path)
+        for member in tqdm(iterable=f.getmembers(), total=len(f.getmembers())):
+        # Extract member
+            f.extract(member=member,path=unzip_path)
+        # tqdm(f.extractall(unzip_path))
     print("File Unzipped Succesfully...", end = "\r")
     
 

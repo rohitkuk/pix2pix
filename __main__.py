@@ -98,4 +98,4 @@ if __name__ == "__main__":
         # save_image(y, "SampleImages/y.png")
         # import sys
         # sys.exit()
-    main(dataset_name = "edges2shoes", Data_Path="vikramtiwari/pix2pix-dataset")
+    main(dataset_name = "facades", Data_Path="vikramtiwari/pix2pix-dataset")
