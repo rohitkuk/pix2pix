@@ -137,5 +137,8 @@ dmypy.json
 Dataset/*
 wandb/
 wandb
+
+logs/
+logs
 # exception to the rule
 !Dataset/.gitkeep
