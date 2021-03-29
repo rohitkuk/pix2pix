@@ -22,7 +22,7 @@ def main(Data_Path, expectedFileName = False, unzip_path = "Dataset", keep_cache
     kaggleDownloadData(Data_Path)
     
     # CREATE UNZIP DIRECTORY IF NOT ALREADY PRESENT 
-    if check_dir_exists(dir_=unzip_path):
+    if not check_dir_exists(dir_=unzip_path):
         create_dir(unzip_path)
     
     # EXTRACT THE DOWNLOADED DATA TO UNZIP FOLDER

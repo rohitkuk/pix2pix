@@ -14,7 +14,7 @@ except ImportError:
 def kaggleDownloadData(Data_Path):
     api = KaggleApi()
     api.authenticate()
-    api.dataset_download_files(Data_Path)
+    api.dataset_download_files(Data_Path, quiet=False)
 
 
 def extractData(filepath, unzip_path):
