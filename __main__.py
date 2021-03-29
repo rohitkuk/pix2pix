@@ -35,7 +35,7 @@ pretty.install()
         - Integration           : TBD
         - System                : TBD
         - UAT                   : TBD
-"""̦
+"""
 
 
 
