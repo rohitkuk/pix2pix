@@ -46,8 +46,13 @@ def create_dir(dir_):
 
 def AlreadyDownloaded(expectedFileName):
     if check_dir_exists("Dataset"):
-        return os.path.isfile(expectedFileName) or len(os.listdir("Dataset")) != 0
-    return os.path.isfile(expectedFileName)
+        print("Directory Existed")
+        result = os.path.isfile(expectedFileName) or len(os.listdir("Dataset")) != 0
+        print(result)
+        return result
+    print("DIRECTORY NOT EXISTED")
+    result = os.path.isfile(expectedFileName)
+    return result
 
 
 def image_grid(imgs, rows, cols):

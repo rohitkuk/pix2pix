@@ -17,6 +17,7 @@ def main(Data_Path, expectedFileName = False, unzip_path = "Dataset", keep_cache
     # CHECK IF ALREADY DOWNLOADED
     if AlreadyDownloaded(expectedFileName):
         return
+    
     print("3")
     # DOWNLOAD KAGGLE DATASET WOULD NEED PATH TO KAGGLE JSON
     kaggleDownloadData(Data_Path)
