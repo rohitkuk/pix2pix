@@ -7,6 +7,30 @@
 
 > Implementation of Image-to-Image Translation with Conditional Adversarial Networks Paper also Known as pix2pix
 
+
+## File Structre
+
+```
+├── Data
+│   ├── explore.py
+│   ├── prepare.py
+│   └── process.py
+├── Execute
+│   └── train.py
+├── Models
+│   ├── discriminator.py
+│   └── generator.py
+├── common
+│   └── utils.py
+├── Config.py
+├── LICENSE
+├── README.md
+├── __main__.py
+└── requirements.txt
+
+```
+
+
 ## Install
 
 ```sh

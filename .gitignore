@@ -140,5 +140,7 @@ wandb
 
 logs/
 logs
+List.md
 # exception to the rule
+
 !Dataset/.gitkeep

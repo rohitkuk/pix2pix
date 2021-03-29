@@ -1,4 +1,6 @@
 
+tree --dirsfirst --noreport -I 'Dataset*|wandb*|__pycache__|__init__.py|logs|SampleImages|List.md' > List.md 
+
 from Data import explore, process, prepare
 from torch.utils.data import DataLoader
 from torchvision.utils import save_image, make_grid
