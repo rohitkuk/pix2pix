@@ -5,7 +5,6 @@ from torchvision.utils import save_image, make_grid
 from torch.utils.tensorboard import SummaryWriter
 from common.utils import create_dir, check_dir_exists
 import Config
-from IPython import get_ipython
 from Execute.train import train
 import torch.nn as nn 
 from torch import optim
@@ -70,6 +69,7 @@ def main(dataset_name, Data_Path):
 
     # Code for COLLAB TENSORBOARD VIEW
     try:
+        from IPython import get_ipython
         get_ipython().magic("%load_ext tensorboard")
         get_ipython().magic("%tensorboard --logdir logs")
     except:
