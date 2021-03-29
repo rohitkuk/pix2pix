@@ -47,7 +47,7 @@ def create_dir(dir_):
 def AlreadyDownloaded(expectedFileName):
     if check_dir_exists("Dataset"):
         print("Directory Existed")
-        result = os.path.isfile(expectedFileName) or len(os.listdir("Dataset")) != 0
+        result = os.path.isfile(expectedFileName) or len(os.listdir("Dataset")) != 1
         print(result)
         return result
     print("DIRECTORY NOT EXISTED")
