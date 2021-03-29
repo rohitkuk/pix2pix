@@ -1,4 +1,4 @@
 tqdm
 Pillow
 numpy
-albumentations
+albumentations==0.5.2
