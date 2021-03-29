@@ -36,10 +36,18 @@ def remove_files(filepath, match = False, match_string = None):
         print("File Succesfully Removed")
 
 
+def check_dir_exists(dir_):
+    return os.path.isdir(dir_)
+
+
+def create_dir(dir_):
+    os.mkdir(dir_)
+
 
 def AlreadyDownloaded(expectedFileName):
-    return os.path.isfile(expectedFileName) or len(os.listdir("Dataset")) != 0
-
+    if check_dir_exists("Dataset"):
+        return os.path.isfile(expectedFileName) or len(os.listdir("Dataset")) != 0
+    return os.path.isfile(expectedFileName)
 
 
 def image_grid(imgs, rows, cols):
@@ -49,15 +57,6 @@ def image_grid(imgs, rows, cols):
     for i, img in enumerate(imgs):
         grid.paste(img, box=(i%cols*w, i//cols*h))
     return grid
-
-
-
-def check_dir_exists(dir_):
-    return os.path.isdir(dir_)
-
-
-def create_dir(dir_):
-    os.mkdir(dir_)
 
 
 def dataset_root(dataset_name):
