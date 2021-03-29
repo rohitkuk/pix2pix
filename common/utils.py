@@ -20,12 +20,17 @@ def kaggleDownloadData(Data_Path):
 
 def extractData(filepath, unzip_path):
     print("Extracting...")
-    with ZipFile(filepath, "r") as f:
-        for member in tqdm(iterable=f.getmembers(), total=len(f.getmembers())):
-        # Extract member
-            f.extract(member=member,path=unzip_path)
-        # tqdm(f.extractall(unzip_path))
-    print("File Unzipped Succesfully...", end = "\r")
+    
+    zf = ZipFile(filepath)
+    uncompress_size = sum((file.file_size for file in zf.infolist()))
+    extracted_size = 0
+
+    for file in zf.infolist():
+        extracted_size += file.file_size
+        print("%s %%" % (extracted_size * 100/uncompress_size), end="\r")
+        zf.extract(file, unzip_path)
+
+    print("File Unzipped Succesfully...")
     
 
 
