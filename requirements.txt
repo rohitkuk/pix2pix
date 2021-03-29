@@ -1,3 +1,4 @@
 tqdm
 Pillow
 numpy
+albumentations
