@@ -2,3 +2,4 @@ tqdm
 Pillow
 numpy
 albumentations==0.5.2
+rich
