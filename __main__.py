@@ -27,8 +27,8 @@ wandb.init(project="pix2pix", entity="rohitkuk")
     - Generator                 : Done
     - Disriminator              : Done
     - Training                  : Done
-    - TensorBoard Integration   : TBD
-    - WandB Integration         : TBD̦
+    - TensorBoard Integration   : Done
+    - WandB Integration         : Done
     - Logging                   : TBD (Try Implementing Rich Library)
     - Argument Parsing          : TBD
     - Requirments.txt           : TBD
