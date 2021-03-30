@@ -2,7 +2,6 @@ from tqdm import tqdm
 import torch
 import os
 def train(disc, gen, BCE, disc_opt, gen_opt, l1_loss,epoch,loader, Config , make_grid, wandb, writer_real, writer_fake, step):
-    step = step
     loop  = tqdm(enumerate(loader), leave = False, desc="{}/{}".format(epoch,Config.EPOCHS))
     for batch_idx , (input_image,target_image) in loop:
         input_image,target_image= input_image.to(Config.DEVICE) , target_image.to(Config.DEVICE)
@@ -39,13 +38,13 @@ def train(disc, gen, BCE, disc_opt, gen_opt, l1_loss,epoch,loader, Config , make
             disc_loss = disc_loss.item(),
             gen_loss  = gen_loss.item()
         )
-        if batch_idx % 10 == 0:
+        if batch_idx % 2 == 0:
             fake_image = fake_image * 0.5 + 0.5 
             input_image = input_image * 0.5 + 0.5 
 
             img_grid_real = make_grid(input_image[:8], normalize=True)
             img_grid_fake = make_grid(fake_image[:8], normalize=True)
-            step =+1
+            step +=1
             writer_real.add_image("Real", img_grid_real, global_step=step)
             writer_fake.add_image("Fake", img_grid_fake, global_step=step)
             wandb.log({"Discremenator Loss": disc_loss.item(), "Generator Loss": gen_loss.item()})

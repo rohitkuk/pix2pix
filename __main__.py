@@ -82,7 +82,6 @@ def main(dataset_name, Data_Path):
 
 
 
-
 if __name__ == "__main__":
     main(dataset_name = "facades", Data_Path="vikramtiwari/pix2pix-dataset")
     # explore.show_grid(GRIDSIZE=1, ROWS=1, COLS=1)
