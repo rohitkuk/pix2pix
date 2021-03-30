@@ -38,7 +38,7 @@ def train(disc, gen, BCE, disc_opt, gen_opt, l1_loss,epoch,loader, Config , make
             disc_loss = disc_loss.item(),
             gen_loss  = gen_loss.item()
         )
-        if batch_idx % 2 == 0:
+        if batch_idx % 10 == 0:
             fake_image = fake_image * 0.5 + 0.5 
             input_image = input_image * 0.5 + 0.5 
 
@@ -49,8 +49,8 @@ def train(disc, gen, BCE, disc_opt, gen_opt, l1_loss,epoch,loader, Config , make
             writer_fake.add_image("Fake", img_grid_fake, global_step=step)
             wandb.log({"Discremenator Loss": disc_loss.item(), "Generator Loss": gen_loss.item()})
             wandb.log({"img": [wandb.Image(img_grid_fake, caption=step)]})
-            torch.save(gen.state_dict(), os.path.join(wandb.run.dir, 'dc_gan_model_gen.pt'))
-            torch.save(disc.state_dict(), os.path.join(wandb.run.dir, 'dc_gan_model_disc.pt'))
+            torch.save(gen.state_dict(), os.path.join(wandb.run.dir, 'pix2pix_gan_model_gen.pt'))
+            torch.save(disc.state_dict(), os.path.join(wandb.run.dir, 'pix2pix_model_disc.pt'))
     return step
 
 
