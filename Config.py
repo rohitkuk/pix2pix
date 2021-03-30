@@ -1,7 +1,7 @@
 
 import torch 
 
-EPOCHS          = 200
+EPOCHS          = 20
 LEARNING_RATE   = 0.002
 L1_LAMBDA       = 100
 BATCH_SIZE      = 32

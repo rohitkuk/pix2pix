@@ -13,6 +13,7 @@ from torch import optim
 from Models.generator import Generator
 from Models.discriminator import Discriminator
 from rich import pretty
+import sys
 # import os
 
 pretty.install()
@@ -83,7 +84,7 @@ def main(dataset_name, Data_Path):
 
 
 if __name__ == "__main__":
-    main(dataset_name = "facades", Data_Path="vikramtiwari/pix2pix-dataset")
+    main(dataset_name = sys.argv[1], Data_Path="vikramtiwari/pix2pix-dataset")
     # explore.show_grid(GRIDSIZE=1, ROWS=1, COLS=1)
     # for x, y in loader:
         # create_dir("SampleImages") if not check_dir_exists('SampleImages') else None
