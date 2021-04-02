@@ -51,7 +51,7 @@ def main(dataset_name, Data_Path):
     
     print("Preparing Dataset")
     prepare.main( Data_Path, expectedFileName=False, unzip_path= "Dataset", keep_cache=False)
-    dataset = process.Pix2PixDatasets(dataset_name)
+    dataset = process.Pix2PixDatasets(dataset_name, reverse=True)
     loader = DataLoader(dataset, batch_size=Config.BATCH_SIZE, shuffle=True, num_workers= Config.NUM_WORKERS  if Config.NUM_WORKER else 0)
     
     BCE = nn.BCEWithLogitsLoss()
